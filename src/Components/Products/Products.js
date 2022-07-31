@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Firebase } from '../../firebase/config'
-import BarLoading from '../../Common/Loading/BarLoading'
 import ProductCards from '../ProductCards/ProductCards'
 import { allProductsContext } from '../../ContextStore'
 import './Products.css'
@@ -70,7 +69,7 @@ export default function Products() {
           </div>
           <div className="cards">
             {" "}
-            {loading ? <BarLoading /> : quickMenuCards}
+            {!loading  && quickMenuCards}
           </div>
         </div>
       }
@@ -78,7 +77,7 @@ export default function Products() {
         <div className="heading">
           <span>Fresh recommendations</span>
         </div>
-        <div className="fresh-recomendation-cards cards">{loading2 ? <BarLoading/> : freshRecomendationCards}</div> 
+        <div className="fresh-recomendation-cards cards">{!loading2 && freshRecomendationCards}</div> 
       </div> 
     </div>
   )

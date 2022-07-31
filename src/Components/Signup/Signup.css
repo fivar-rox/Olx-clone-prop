@@ -1,12 +1,20 @@
 .signupParentDiv {
     border: 1px solid black;
-    width: max-content;
+    width: 350px;
     padding: 10px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 6px;
+  }
+
+  .signupParentDiv .label {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    width: 90%;
   }
   
   .signupParentDiv .input {
@@ -15,12 +23,16 @@
     border-right-color: transparent;
     outline-color: transparent;
     background-color:transparent;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    width: 90%;
   }
   
   .signupParentDiv button {
     width: 100%;
     height: 48px;
-    /* border-color: transparent; */
     background-color: #002f34;
     color: whitesmoke;
     font-weight: 900;
@@ -35,5 +47,18 @@
     display: flex;
     justify-content: center;
     cursor: pointer;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+  
+  .loadingCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
   }
   

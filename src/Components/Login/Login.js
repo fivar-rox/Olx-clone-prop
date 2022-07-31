@@ -1,8 +1,8 @@
 import React from 'react'
 import { useHistory, Link } from 'react-router-dom'
+import ReactLoading from 'react-loading'
 import { Firebase } from '../../firebase/config'
 import Logo from '../../Common/Images/olx-logo.png'
-import RoundLoading from '../../Common/Loading/RoundLoading'
 import './Login.css'
 
 export default function Login() {
@@ -20,11 +20,11 @@ export default function Login() {
 
   return (
     <>
-      {loading && <RoundLoading/> }
+      {loading ? <ReactLoading className="loadingCenter" color="grey" /> :
       <div className="loginParentDiv">
-        <img width="200px" height="200px" src={Logo} alt=""></img>
+        <img height="200px" src={Logo} alt="" className="center"></img>
         <form onSubmit={handleSubmit}>
-          <label>Email</label>
+          <label className="label">Email</label>
           <br />
           <input
             className="input"
@@ -35,7 +35,7 @@ export default function Login() {
             onChange={(e) => setEmail(e.target.value)}
           />
           <br />
-          <label>Password</label>
+          <label className="label">Password</label>
           <br />
           <input
             className="input"
@@ -49,8 +49,10 @@ export default function Login() {
           <br />
           <button>Login</button>
         </form>
+
         <Link to="/signup">Signup</Link>
       </div> 
+      }
     </>
   )
 }

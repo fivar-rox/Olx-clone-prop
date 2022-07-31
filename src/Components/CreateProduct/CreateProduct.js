@@ -1,9 +1,9 @@
 import React from 'react'
 import { useHistory } from 'react-router'
+import ReactLoading from 'react-loading'
 import Header from '../Header/Header';
 import { Firebase } from "../../firebase/config"
 import { authContext } from '../../ContextStore'
-import GoLoading from '../../Common/Loading/GoLoading';
 import './CreateProduct.css'
 
 export default function CreateProduct() {
@@ -14,10 +14,30 @@ export default function CreateProduct() {
   let [category, setCategory] = React.useState('');
   let [price, setPrice] = React.useState('');
   let [description, setDescription] = React.useState('');
-  let [image, setImage] = React.useState();
+  let [image, setImage] = React.useState('');
   let [loading, setLoading] = React.useState(false);
 
   const handleSubmit = () => {
+    if(name === ''){
+      alert('Please enter a name')
+      return
+    }
+    if(category === ''){
+      alert('Please select the category')
+      return
+    }
+    if(price === ''){
+      alert('Please enter the price')
+      return
+    }
+    if(description === ''){
+      alert('Please enter the description')
+      return
+    }
+    if(image === ''){
+      alert('Please enter an image')
+      return
+    }
     setLoading(true);
     let date = new Date().toDateString()
     Firebase.storage().ref(`/image/${image.name}`).put(image)
@@ -44,13 +64,14 @@ export default function CreateProduct() {
   return (
     <React.Fragment>
       <Header />
-      { loading ? <GoLoading/> : null }
+      { loading ? <ReactLoading className="loadingCenter" color="grey" /> : 
       <div className="centerDiv">
         <label>Name</label>
-        <br />
+        <br/>
         <input className="input" type="text" name="Name" value={name} onChange={(e) => setName(e.target.value)} />
-        <br />
-        <label>Category:</label>
+        <br/>
+        <label>Category</label>
+        <br/>
         <select name="Category" onChange={(e) => setCategory(e.target.value)} className="input"> 
           <option>Select Category</option>
           <option value="Cars">Cars</option>
@@ -69,13 +90,15 @@ export default function CreateProduct() {
         <br />
         <input className="input" type="text" name="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
         <br />
-        <br />
-        <img alt="Products" width="200px" height="200px" src={image ? URL.createObjectURL(image) : ""} ></img>
+        <label> Image </label>
+        {image && 
+        <img alt="Products" width="200px" height="200px" src={image ? URL.createObjectURL(image) : ""} ></img>}
         <br />
         <input type="file" onChange={(e) => setImage(e.target.files[0])} />
         <br />
         <button className="uploadBtn" onClick={handleSubmit}> upload and Submit </button>
       </div> 
+      }
     </React.Fragment>
   )
 }

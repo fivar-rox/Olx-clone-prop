@@ -7,8 +7,6 @@
   padding: 10px 16px 10px 16px;
 }
 
-
-
 .bannerParentDiv .bannerChildDiv .menuBar .categoryMenu span {
   margin-right: 16px;
   font-weight: bolder;
@@ -38,5 +36,4 @@
 
 .otherQuickOptions span{
   cursor: pointer;
-  
 }

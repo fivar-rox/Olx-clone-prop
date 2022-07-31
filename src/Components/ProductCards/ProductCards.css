@@ -3,9 +3,10 @@
     padding: 13px;
     max-width: 222px;
     width: 222px;
-    height: 270px;
+    height: 280px;
     display: inline-block;
     cursor: pointer;
+    border: 1px solid #101;
   }
   
   .card .favorite {

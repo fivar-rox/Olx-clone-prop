@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import ProductCards from '../ProductCards/ProductCards'
 import { allProductsContext } from '../../ContextStore' 
 import './CategoryProducts.css'
@@ -18,7 +17,6 @@ export default function CategoryProducts({category}) {
       <div className="moreView">
         <div className="heading">
           <span>{category}</span>
-          <Link to="./viewmore"> <span>View more</span> </Link>
         </div> 
         <div className="cards">{productCards}</div>
       </div>

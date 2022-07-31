@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory, Link } from 'react-router-dom'
+import ReactLoading from 'react-loading'
 import { Firebase } from '../../firebase/config'
-import SignUpLoading from '../../Common/Loading/SignUpLoading'
 import Logo from '../../Common/Images/olx-logo.png'
 import './Signup.css'
 
@@ -32,11 +32,11 @@ export default function Signup() {
 
   return (
     <>
-      {loading && <SignUpLoading/> } 
+      {loading ? <ReactLoading className="loadingCenter" color="grey" /> :  
         <div className="signupParentDiv">
-          <img width="200px" height="200px" src={Logo} alt=""></img>
+          <img height="200px" src={Logo} alt="" className="center"></img>
           <form onSubmit={handleSubmit}>
-            <label>Full Name</label>
+            <label className="label">Full Name</label>
             <br />
             <input
               className="input"
@@ -46,7 +46,7 @@ export default function Signup() {
               name="name"
             />
             <br />
-            <label>Email</label>
+            <label className="label">Email</label>
             <br />
             <input
               className="input"
@@ -56,7 +56,7 @@ export default function Signup() {
               name="email"
             />
             <br />
-            <label>Phone</label>
+            <label className="label">Phone</label>
             <br />
             <input
               className="input"
@@ -66,7 +66,7 @@ export default function Signup() {
               name="phone"
             />
             <br />
-            <label>Password</label>
+            <label className="label">Password</label>
             <br />
             <input
               className="input"
@@ -81,6 +81,7 @@ export default function Signup() {
           </form>
           <Link to="/login">Login</Link>
         </div>
+        }
     </>
   )
 }
